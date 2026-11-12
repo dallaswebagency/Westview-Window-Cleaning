@@ -139,22 +139,30 @@ nav.main a:hover:after,nav.main a.on:after{width:100%}
 .also a{border:1px solid var(--line);background:#fff;padding:9px 16px;font-size:14.5px;border-radius:40px;transition:.2s}
 .also a:hover{border-color:var(--blue);color:var(--blue)}
 
-/* why choose us */
-.why{padding:120px 0}
-.why .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:stretch}
-.why-photo{position:relative;background:url(images/crew-upper-window.jpg) 40% center/cover;min-height:620px}
-.why-photo .cap{position:absolute;left:0;bottom:0;background:#fff;padding:24px 28px 0 0;max-width:80%}
-.why-photo .cap h2{font-size:clamp(32px,3.4vw,48px);color:var(--navy);font-weight:800;margin-top:12px}
-.frame{display:grid;grid-template-columns:1fr 1fr;border:8px solid var(--navy);background:var(--navy);gap:6px}
-.frame div{background:#fff;padding:34px 30px;transition:background .3s}
-.frame div:hover{background:var(--ice)}
-.frame .ic{width:44px;height:44px;border-radius:50%;background:var(--ice);display:grid;place-items:center;margin-bottom:18px;transition:.3s}
-.frame div:hover .ic{background:#fff}
-.frame .ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8}
-.frame h3{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.frame p{font-size:15.5px;color:var(--muted)}
-.frame a.more{display:inline-block;margin-top:10px;font-weight:600;font-size:14.5px;color:var(--blue);border-bottom:1px solid currentColor}
-
+/* why choose us : window blinds */
+.why{padding:120px 0 130px;background:#fff}
+.why-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:50px}
+.why-top h2{font-size:clamp(36px,4.2vw,62px);color:var(--navy);font-weight:800;margin-top:14px}
+.why-top p{color:var(--muted);max-width:440px;justify-self:end}
+.why-top p b{color:var(--navy)}
+.blinds{position:relative;display:flex;height:540px;background:url(images/crew-upper-window.jpg) center 35%/cover;overflow:hidden;outline:12px solid #fff;box-shadow:0 0 0 13px var(--line),0 40px 70px -40px rgba(11,47,87,.55)}
+.slat{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;padding:30px 26px;color:#fff;background:rgba(11,47,87,.93);border-right:1px solid rgba(255,255,255,.14);cursor:pointer;transition:flex .7s cubic-bezier(.6,0,.2,1),background .6s ease;outline:none}
+.slat:last-child{border-right:0}
+.slat:nth-child(even){background:rgba(14,108,177,.9)}
+.slat:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.06) 0 1px,transparent 1px 26px);pointer-events:none;transition:opacity .5s}
+.slat.on{flex:3.2;background:linear-gradient(180deg,rgba(11,47,87,0) 25%,rgba(11,47,87,.92) 88%)}
+.slat.on:before{opacity:0}
+.slat .no{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:800;font-size:13px;letter-spacing:.16em;color:#7fc1ee;position:relative}
+.slat .ttl{position:relative;margin-top:auto;font-family:"Archivo",sans-serif;font-stretch:112%;font-weight:800;font-size:22px;line-height:1.1;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;transition:opacity .3s}
+.slat .body{position:absolute;left:34px;right:34px;bottom:34px;opacity:0;transform:translateY(18px);transition:opacity .4s ease,transform .5s ease;pointer-events:none}
+.slat .body h3{font-size:clamp(30px,3vw,44px);font-weight:800;margin-bottom:12px}
+.slat .body p{color:#d9e9f6;font-size:17px;max-width:430px}
+.slat .body a{display:inline-block;margin-top:16px;font-weight:600;color:#fff;border-bottom:1.5px solid #7fc1ee;pointer-events:auto}
+.slat.on .ttl{opacity:0}
+.slat.on .body{opacity:1;transform:none;transition-delay:.35s}
+.slat svg{position:relative;margin-top:18px;width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.6;opacity:.85}
+.blind-hint{display:flex;align-items:center;gap:10px;margin-top:34px;color:var(--muted);font-size:14.5px}
+.blind-hint i{width:36px;height:2px;background:var(--blue);display:inline-block}
 /* trust badges */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .trust .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:30px;padding-bottom:30px}
@@ -254,7 +262,17 @@ footer .ridge-top{position:absolute;top:-1px;left:0;right:0;height:70px}
   nav.main.open{display:flex}
   .burger{display:block}
   .hdr-cta .btn{display:none}
-  .hero .wrap,.intro .wrap,.why .wrap{grid-template-columns:1fr;gap:60px}
+  .hero .wrap,.intro .wrap{grid-template-columns:1fr;gap:60px}
+  .why-top{grid-template-columns:1fr;gap:18px}.why-top p{justify-self:start}
+  .blinds{flex-direction:column;height:auto;outline-width:8px;box-shadow:0 0 0 9px var(--line)}
+  .slat,.slat.on{flex:none;background:rgba(11,47,87,.9);border-right:0;border-bottom:1px solid rgba(255,255,255,.14);padding:26px 24px}
+  .slat:nth-child(even){background:rgba(14,108,177,.88)}
+  .slat:before{display:none}
+  .slat .ttl{display:none}
+  .slat .body,.slat.on .body{position:relative;left:auto;right:auto;bottom:auto;opacity:1;transform:none;margin-top:14px}
+  .slat .body h3{font-size:26px}
+  .slat>svg{position:absolute;right:24px;top:26px}
+  .blind-hint{display:none}
   .pane-note{position:relative;left:0;bottom:0;margin-top:26px;max-width:none}
   .handover .wrap{grid-template-columns:1fr;gap:20px}
   .handover .tagline{text-align:left}
@@ -262,7 +280,6 @@ footer .ridge-top{position:absolute;top:-1px;left:0;right:0;height:70px}
   .svc{grid-template-columns:44px 1fr;row-gap:10px}
   .svc p{grid-column:2}
   .svc .ph{grid-column:2;max-width:200px}
-  .why-photo{min-height:460px}
   .trust .wrap{flex-direction:column;align-items:flex-start}
   .trust .logos{justify-content:flex-start;gap:32px}
   .rev-grid,.posts{grid-template-columns:1fr}
@@ -277,7 +294,6 @@ footer .ridge-top{position:absolute;top:-1px;left:0;right:0;height:70px}
   .util-l a.mail{display:none}
   .logo img{height:48px}
   .price-tag{flex-direction:column}.price-tag div+div{border-left:0;border-top:1px dashed var(--line)}
-  .frame{grid-template-columns:1fr}
   form.quote{grid-template-columns:1fr}
   .post{grid-template-columns:1fr}
   .ft{grid-template-columns:1fr}
@@ -437,17 +453,49 @@ footer .ridge-top{position:absolute;top:-1px;left:0;right:0;height:70px}
 <!-- why choose us -->
 <section class="why">
   <div class="wrap">
-    <div class="why-photo rv" role="img" aria-label="Westview cleaner on a ladder washing upper windows">
-      <div class="cap"><span class="eyebrow">Why Westview</span><h2>Why Choose Us</h2></div>
+    <div class="why-top rv">
+      <div><span class="eyebrow">Why Westview</span><h2>Why Choose Us</h2></div>
+      <p>Six reasons Calgary homeowners keep calling us back. <b>Open each blind</b> to see what you can expect from our crew.</p>
     </div>
-    <div class="frame rv">
-      <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><h3>Local</h3><p>A local team that knows Calgary homes and weather, bringing personal, reliable care to every job.</p></div>
-      <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Experienced</h3><p>Every cleaner is well trained and goes through a rigorous vetting process.</p></div>
-      <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8M19 21V8M5 11h14M5 15h14M5 19h14M5 8h14"/></svg></span><h3>Safety</h3><p>Safety is our top priority. Proper equipment, techniques and training protect your home, our crew and anyone nearby.</p></div>
-      <div><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Flexibility</h3><p>Just tell us when, and we'll be there on schedule, without delays.</p></div>
-      <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><h3>Packages</h3><p>Review our package deals and pick the one that suits your needs.</p><a class="more" href="https://westviewcleaning.ca/">View packages</a></div>
-      <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H8a2.5 2.5 0 1 1 0-5c2.5 0 4 5 4 5ZM12 7h4a2.5 2.5 0 1 0 0-5c-2.5 0-4 5-4 5Z"/></svg></span><h3>Special Offer</h3><p>Seasonal offers and coupons are available all year round.</p><a class="more" href="https://westviewcleaning.ca/">Learn more</a></div>
+    <div class="blinds rv" id="blinds">
+      <div class="slat on" tabindex="0">
+        <span class="no">01</span>
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span class="ttl">Local</span>
+        <div class="body"><h3>Local</h3><p>A local team that knows Calgary homes and weather, bringing personal, reliable care to every job.</p></div>
+      </div>
+      <div class="slat" tabindex="0">
+        <span class="no">02</span>
+        <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span class="ttl">Experienced</span>
+        <div class="body"><h3>Experienced</h3><p>Every cleaner is well trained and goes through a rigorous vetting process.</p></div>
+      </div>
+      <div class="slat" tabindex="0">
+        <span class="no">03</span>
+        <svg viewBox="0 0 24 24"><path d="M6 21 9 3M18 21 15 3M7.5 9h9M7 15h10"/></svg>
+        <span class="ttl">Safety</span>
+        <div class="body"><h3>Safety</h3><p>Safety is our top priority. Proper equipment, techniques and training protect your home, our crew and anyone nearby.</p></div>
+      </div>
+      <div class="slat" tabindex="0">
+        <span class="no">04</span>
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span class="ttl">Flexibility</span>
+        <div class="body"><h3>Flexibility</h3><p>Just tell us when, and we'll be there on schedule, without delays.</p></div>
+      </div>
+      <div class="slat" tabindex="0">
+        <span class="no">05</span>
+        <svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+        <span class="ttl">Packages</span>
+        <div class="body"><h3>Packages</h3><p>Review our package deals and pick the one that suits your needs.</p><a href="https://westviewcleaning.ca/">View packages</a></div>
+      </div>
+      <div class="slat" tabindex="0">
+        <span class="no">06</span>
+        <svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H8a2.5 2.5 0 1 1 0-5c2.5 0 4 5 4 5ZM12 7h4a2.5 2.5 0 1 0 0-5c-2.5 0-4 5-4 5Z"/></svg>
+        <span class="ttl">Special Offer</span>
+        <div class="body"><h3>Special Offer</h3><p>Seasonal offers and coupons are available all year round.</p><a href="https://westviewcleaning.ca/">Learn more</a></div>
+      </div>
     </div>
+    <div class="blind-hint"><i></i>Hover or tap a panel to open it</div>
   </div>
 </section>
 
@@ -597,6 +645,12 @@ document.querySelectorAll('.ph[data-img]').forEach(function(el){
   var src=el.getAttribute('data-img'),im=new Image();
   im.onload=function(){el.style.backgroundImage='url('+src+')';el.classList.add('has-img')};
   im.src=src;
+});
+// why-choose-us blinds
+var slats=document.querySelectorAll('#blinds .slat');
+slats.forEach(function(sl){
+  function open(){slats.forEach(function(x){x.classList.remove('on')});sl.classList.add('on')}
+  sl.addEventListener('mouseenter',open);sl.addEventListener('click',open);sl.addEventListener('focus',open);
 });
 // reveal on scroll
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
